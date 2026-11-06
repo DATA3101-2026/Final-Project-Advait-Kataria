@@ -1,20 +1,21 @@
-# Data Audit & Overview Template
-Your name here
-2026-10-28
+# AI Data Center Power Use vs. Industry Growth: Data Audit
+Advait Kataria
+2026-11-05
 
 - [1: Project Overview](#1-project-overview)
 - [2: Data Sources](#2-data-sources)
   - [2.1 Summary of sources](#21-summary-of-sources)
-  - [2.2.1: \[name 1\]](#221-name-1)
-  - [2.2.2 \[name 2\]](#222-name-2)
+  - [2.2.1: Epoch AI Frontier Data
+    Centers](#221-epoch-ai-frontier-data-centers)
+  - [2.2.2 Statistics Canada Table 36-10-0434-01, GDP by
+    industry](#222-statistics-canada-table-36-10-0434-01-gdp-by-industry)
+  - [2.2.3: Statistics Canada Table 33-10-1167-01, AI use by
+    industry](#223-statistics-canada-table-33-10-1167-01-ai-use-by-industry)
   - [2.3: Investigated and rejected
     sources](#23-investigated-and-rejected-sources)
   - [2.4: What I could not find](#24-what-i-could-not-find)
 - [3: Licensing and permissions](#3-licensing-and-permissions)
   - [3.1: Licence by source](#31-licence-by-source)
-  - [3.2: Unresolved licensing \[If you were able to find all licencing,
-    delete
-    this\]](#32-unresolved-licensing-if-you-were-able-to-find-all-licencing-delete-this)
   - [3.3: Downstream permissions](#33-downstream-permissions)
 - [4: Consent and identifiability](#4-consent-and-identifiability)
 - [5: Exclusions and harms](#5-exclusions-and-harms)
@@ -26,18 +27,12 @@ Your name here
 - [7: Use of AI](#7-use-of-ai)
 - [8: Session information](#8-session-information)
 
-<!--  another version of markdown elements, this works for html-style documents
-&#10;[FP Part 2: HOW TO USE THIS TEMPLATE FOR YOUR SUBMISSION
-&#10;Replace every bracketed prompt with your own writing (remove the brackets themselves, they're part of the placeholder here), and delete the prompt. 
-&#10;Delete any sections that are not relevant for project, but note in commit message notes (not commit titles!) why you chose to delete them. That way I know that you've been thinking through what will be relevant as you begin the coding portion of this project.
-&#10;Render, commit and push the markdown AND the .Rmd to your final project folder. 
-&#10;This document will live in your final project folder in your repository alongside the AI-LOG.md, your code, and your raw data. Remember to commit it as you work on it, so that it doesn't get mixed up in your class or assignment commit messages.]
--->
-
 # 1: Project Overview
 
-\[Two or three sentences. What community, what question, what you are
-building. Assume your reader has not seen your proposal.\]
+The goal of this project is to see how the rapid growth in AI data
+center power capacity coincide with growth in Canada’s high-AI
+industries than its low-AI industries. The project through various data
+sources will visualize the variables contributing to this comparison.
 
 ------------------------------------------------------------------------
 
@@ -45,82 +40,212 @@ building. Assume your reader has not seen your proposal.\]
 
 <!-- For the section numbers above, remember to update if needed for multiple sources or removing unneeded subsections -->
 
-\[This section everything you went looking for in your data audit. If
-you found sources that you chose not to use for the project itself, put
-them in! That helps me understand all the options you were considering
-as you worked through it\]
+\[This section covers everything you went looking for in your data
+audit. If you found sources that you chose not to use for the project
+itself, put them in! That helps your reader understand all the options
+you were considering as you worked through it.\]
 
 ## 2.1 Summary of sources
 
 \[Fill in one row per source you investigated. Include the ones you
 rejected in the `Using?` column. This table is the quick reference your
 reader checks before reading anything else. A clear table will give a
-reader a good idea of what the focus is beyond the overview\]
+reader a good idea of what the focus is beyond the overview.\]
 
-| Source          | Producer         | Format  | Coverage         | Using        |
-|:----------------|:-----------------|:--------|:-----------------|:-------------|
-| \[source name\] | \[organization\] | \[CSV\] | \[place, years\] | Yes          |
-| \[source name\] | \[organization\] | \[PDF\] | \[place, years\] | Yes          |
-| \[source name\] | \[organization\] | \[API\] | \[place, years\] | No, see 2.4 |
+| Source | Producer | Format | Coverage | Using |
+|:---|:---|:---|:---|:---|
+| Epoch AI Frontier Data Centers | Epoch AI | CSV (7 files) | 96 AI data centres, 12 countries, 2018-2030 (incl. projections) | Yes |
+| StatCan Table 36-10-0434-01, GDP by industry | Statistics Canada | CSV | Canada, monthly, by NAICS industry | Yes |
+| StatCan Table 33-10-1167-01, AI use by industry | Statistics Canada | CSV | Canada and provinces, Q2 2026, by NAICS industry | Yes |
+| Epoch AI Models | Epoch AI | CSV | Global, AI models since 1950s | No, see 2.3 |
+| LBNL 2024 US Data Center Energy Usage Report | Lawrence Berkeley National Laboratory | PDF | United States, 2014-2028 | No, see 2.3 |
+| SEC EDGAR Financial Statement Data Sets | US Securities and Exchange Commission | TSV (quarterly ZIPs) | US public companies, 2009 onward | No, see 2.3 |
+| OpenAlex | OurResearch (nonprofit) | API | Global research papers | No, see 2.3 |
+| StatCan Table 33-10-1045-01, planned AI use | Statistics Canada | CSV | Canada, Q3 2025 | No, see 2.3 |
 
-## 2.2.1: \[name 1\]
+## 2.2.1: Epoch AI Frontier Data Centers
 
-**Producer and authority.** \[Who made this dataset, under what grant,
-mandate, legal authority, initiative, etc. Ex: If a municipality
-publishes it, which department, and are they required to? If a
-researcher published it, what grant was it under? If it’s an open source
-publication from an organization, do they describe why it is
-published?\]
+**Producer and authority.** Epoch AI, an independent research institute
+founded in 2021 that studies the trajectory of AI. No government
+mandate. It is a data-first research nonprofit investigating artificial
+intelligence.
 
-**Original Dataset Purpose.** \[Why was this collected? The original
-author likely didn’t have the exact same research question as you.\]
+**Original Dataset Purpose.** Built to track construction timelines of
+major AI data centers: power capacity, compute capacity and capital cost
+over time. Not built to measure electricity actually consumed.
 
-**Collection method.** \[How did the values collected get into the file?
-Sensor, survey, administrative by-product, manual entry, something
-nobody can tell you? Remember that no answer found is still and
-answer!\]
+**Collection method.** Estimated from high-resolution satellite imagery,
+permits and public documents. The download includes reference tables of
+chillers (143 models) and cooling towers (527 models), which Epoch uses
+to estimate a site’s power from the cooling equipment visible in
+satellite images. Epoch states 80% confidence that a given power
+capacity is accurate.
 
-**Coverage and resolution.** \[Spatial extent, temporal range, reporting
-frequency, unit of observation.\]
+**Coverage and resolution.** 96 data centers in 12 countries. Timeline
+file: 575 dated records, December 2018 to January 2030. Unit of
+observation: one site (data_centers.csv) or one site on one date
+(data_center_timelines.csv).
 
-**Licence.** \[Find the licence declaration and put the shorthand here.
-If you cannot find it, say here and complete section 3.2.\]
+**Licence.** Creative Commons Attribution 4.0 (CC BY 4.0).
 
-**Access.** \[How you got it, and whether a future user could get it the
-same way. Include the date you retrieved it if it is from a website, as
-sometimes web portals or search algorithms can change and make your
-first search method difficult to replicate.\]
+**Access.** Downloaded as a ZIP of seven CSV files plus a README from
+the Epoch AI data centers downloads page
+(https://epoch.ai/data/data-centers-documentation/downloads). Can be
+downloaded from Epoch AI’s website for future use though it may differ
+from the file used here.
 
-**Known problems.** \[What is wrong with it on a first look-through? Are
-there any missing years, survey answers, changed definitions,
-inconsistent identifiers, or NA values in the dataset?\]
+**Known problems.** A few problems are:- -20 sites show 0 MW current
+power (likely planned or under construction). -Only 28 timeline records
+come from before 2023. -Capacity is not consumption (Epoch: typically
+60-80% of capacity).
 
-\[One or two sentences on what the output above shows. Feel free to note
-anything new or hard for you to initially understand in the structure,
-types, source, or size.\]
+    Rows: 96
+    Columns: 16
+    $ Name                                             <chr> "Colossus 2", "OpenAI…
+    $ `Current H100 equivalents`                       <dbl> 1111672.6, 1018696.3,…
+    $ `Current power (MW)`                             <dbl> 946.0000, 824.0000, 1…
+    $ `Current total capital cost (2025 USD billions)` <dbl> 35.836372, 31.214768,…
+    $ Owner                                            <chr> "SpaceXAI #confident"…
+    $ Users                                            <chr> "Anthropic #confident…
+    $ `Selected Sources`                               <chr> "- [WSJ profile of th…
+    $ `Calculations sheet`                             <chr> "https://docs.google.…
+    $ Project                                          <chr> NA, "Stargate #confid…
+    $ `Current chip types`                             <chr> "B200,B300", "B200,B3…
+    $ `All chip types`                                 <chr> "B200,B300", "B200,B3…
+    $ Investors                                        <chr> NA, "Softbank,OpenAI,…
+    $ `Construction companies`                         <chr> NA, "Mortenson", NA, …
+    $ `Energy companies`                               <chr> NA, "American Electri…
+    $ Country                                          <chr> "United States", "Uni…
+    $ Address                                          <chr> "5420 Tulane Rd, Memp…
 
-## 2.2.2 \[name 2\]
+    Rows: 575
+    Columns: 14
+    $ `Data center`                                 <chr> "Colossus 2", "Colossus …
+    $ Date                                          <date> 2025-02-28, 2025-09-08,…
+    $ `Construction status`                         <chr> "Land clearing begins ne…
+    $ `Buildings operational`                       <dbl> 0, 0, 1, 1, 1, 2, 3, 0, …
+    $ `IT power (MW)`                               <dbl> 0, 0, 239, 239, 490, 946…
+    $ `Power (MW)`                                  <dbl> 0, 0, 323, 323, 661, 127…
+    $ `H100 equivalents`                            <dbl> 0.0, 0.0, 277918.1, 2779…
+    $ `Performance (8-bit OP/s)`                    <dbl> 0.00000e+00, 0.00000e+00…
+    $ `Total capital cost (2025 USD billions)`      <dbl> 0.000000, 0.000000, 9.05…
+    $ `Compute cost (2025 USD billions)`            <dbl> 0.000000, 0.000000, 6.24…
+    $ `Construction cost (2025 USD billions)`       <dbl> 0.000000, 0.000000, 2.81…
+    $ `Annual operating cost (2025 USD billions)`   <dbl> 0.000000, 0.000000, 0.21…
+    $ `Water use (MGD)`                             <dbl> NA, NA, NA, NA, NA, NA, …
+    $ `Current H100 equivalents (from Data center)` <dbl> 1111672.6, 1111672.6, 11…
 
-\[Repeat the full structure above for every source you are using. Copy
-the headings and the loaded source’s descriptive sentences below.\]
+## 2.2.2 Statistics Canada Table 36-10-0434-01, GDP by industry
+
+**Producer and authority.** Statistics Canada is Canada’s national
+statistical agency, which collects and publishes data under the
+Statistics Act. Statistics Canada is committed to transparency and
+accountability by providing access to its information in response to
+access to information or privacy requests where permitted by law.
+
+**Original Dataset Purpose.** Part of Canada’s national accounts;
+measures monthly economic output (GDP at basic prices) of each industry,
+used to track the economy.
+
+**Collection method.** Data are extracted from administrative files and
+derived from other Statistics Canada surveys and other sources.
+
+**Coverage and resolution.** Canada only
+
+**Licence.** Statistics Canada Open Licence.
+
+**Access.** Downloaded as a full-table CSV (data file plus metadata
+file) from
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3610043401. Can be
+downloaded for future use to study the year used.
+
+**Known problems.** long format with several rows per month per industry
+(seasonal adjustment and price types). Industry list is broader than the
+AI survey’s sectors
+
+    Rows: 265,932
+    Columns: 17
+    $ REF_DATE                                                <chr> "1997-01", "19…
+    $ GEO                                                     <chr> "Canada", "Can…
+    $ DGUID                                                   <chr> "2021A00001112…
+    $ `Seasonal adjustment`                                   <chr> "Seasonally ad…
+    $ Prices                                                  <chr> "Chained (2017…
+    $ `North American Industry Classification System (NAICS)` <chr> "All industrie…
+    $ UOM                                                     <chr> "Dollars", "Do…
+    $ UOM_ID                                                  <dbl> 81, 81, 81, 81…
+    $ SCALAR_FACTOR                                           <chr> "millions", "m…
+    $ SCALAR_ID                                               <dbl> 6, 6, 6, 6, 6,…
+    $ VECTOR                                                  <chr> "v65201210", "…
+    $ COORDINATE                                              <chr> "1.1.1.1", "1.…
+    $ VALUE                                                   <dbl> 1200427, 38253…
+    $ STATUS                                                  <chr> NA, NA, NA, ".…
+    $ SYMBOL                                                  <lgl> NA, NA, NA, NA…
+    $ TERMINATED                                              <lgl> NA, NA, NA, NA…
+    $ DECIMALS                                                <dbl> 0, 0, 0, 0, 0,…
+
+## 2.2.3: Statistics Canada Table 33-10-1167-01, AI use by industry
+
+**Producer and authority.** Statistics Canada, under the Statistics Act,
+through the Canadian Survey on Business Conditions.
+
+**Original Dataset Purpose.** The survey tracks the environment
+businesses operate in and their expectations
+
+**Collection method.** Collected through online questionnaire.
+Self-reported: businesses may define “using AI” differently
+
+**Coverage and resolution.** Covers Canada. 20 AI-use categories (Yes,
+No, 18 application types). Values are percent of businesses.
+
+**Licence.** Statistics Canada Open Licence.
+
+**Access.** Downloaded as a full-table CSV (data file plus metadata
+file) from
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3310116701.
+
+**Known problems.** Survey excludes some industries in the GDP table and
+lots of missing values.
+
+    Rows: 18,760
+    Columns: 16
+    $ REF_DATE                                                                                                                               <dbl> …
+    $ GEO                                                                                                                                    <chr> …
+    $ DGUID                                                                                                                                  <chr> …
+    $ `Business characteristics`                                                                                                             <chr> …
+    $ `Use of artificial intelligence (AI) by businesses or organizations in producing goods or delivering services over the last 12 months` <chr> …
+    $ UOM                                                                                                                                    <chr> …
+    $ UOM_ID                                                                                                                                 <dbl> …
+    $ SCALAR_FACTOR                                                                                                                          <chr> …
+    $ SCALAR_ID                                                                                                                              <dbl> …
+    $ VECTOR                                                                                                                                 <chr> …
+    $ COORDINATE                                                                                                                             <chr> …
+    $ VALUE                                                                                                                                  <dbl> …
+    $ STATUS                                                                                                                                 <chr> …
+    $ SYMBOL                                                                                                                                 <lgl> …
+    $ TERMINATED                                                                                                                             <lgl> …
+    $ DECIMALS                                                                                                                               <dbl> …
 
 ## 2.3: Investigated and rejected sources
 
-\[One or two sentences per rejected source: what it was, why you went
-looking. Some examples: licensing permissions, resolution mismatch,
-paywall, abandoned since 2017, aggregated beyond its usefulness, changed
-project idea, etc.
+- Epoch AI Models: Training energy available for few models, falling to
+  30 in 2025 and 3 in 2026 because companies stopped disclosing and
+  covers training only, not running models.
 
-A rejected source documented properly saves the next person the time you
-spent finding out the best source for your project. Negative results are
-not bad news!\]
+-LBNL 2024 report: Published as PDF tables, covers all data centers(not
+only AI), and no licence statement found.
+
+-SEC EDGAR: company revenue for all US public companies, but quarterly
+files are large.
+
+-StatCan Table 33-10-1045-01: measures planned AI use over the next 12
+months, not actual use.
 
 ## 2.4: What I could not find
 
-\[If you changed your project idea due to lack of data, explain what you
-expected to find more easily but does not, or exists and is not
-obtainable. Name who holds it, if you know the source. Absence is a
-finding about how an organization or community’s data is managed.\]
+Could not find a Canadian or government dataset of AI data center
+electricity use. Later found out that companies such as Google,
+Microsoft and xAI do not publish per-site electricity consumption.
+Statistics Can also has no data center electricity table.
 
 ------------------------------------------------------------------------
 
@@ -130,50 +255,57 @@ finding about how an organization or community’s data is managed.\]
 
 | Source | Licence | Attribution_required | Attribution_given |
 |:---|:---|:---|:---|
-| \[source name 1\] | \[e.g. OGL Canada 2.0\] | Yes | Yes, see below |
-| \[source name 2\] | \[licence\] | \[Yes/No\] | \[Yes/No\] |
+| Epoch AI Frontier Data Centers | CC BY 4.0 | Yes | Yes, see below |
+| StatCan Table 36-10-0434-01, GDP by industry | Statistics Canada Open Licence | Yes | Yes, see below |
+| StatCan Table 33-10-1167-01, AI use by industry | Statistics Canada Open Licence | Yes | Yes, see below |
 
-**Attribution statements.** \[Reproduce the exact attribution each
-licence requires, aka the wording the licence specifies.\]
+**Attribution statements.** Epoch AI: Epoch AI, ‘AI data centers’.
+Published online at epoch.ai. Retrieved from
+‘https://epoch.ai/data/ai-data-centers’ \[online resource\].
 
-## 3.2: Unresolved licensing \[If you were able to find all licencing, delete this\]
+Statistics Canada table: \> Statistics Canada. Table 36-10-0434-01 Gross
+domestic product (GDP) at basic prices, by industry, monthly. DOI:
+https://doi.org/10.25318/3610043401-eng
 
-\[For any source where you could not determine the licence include: what
-you tried, who you contacted or what you found, and what you concluded
-about permissible use based on the project. “Unknown, this is my search
-or web investigation trail” is worth full marks.\]
+Statistics Canada table: Statistics Canada. Table 33-10-1167-01 Use of
+artificial intelligence by businesses and organizations in producing
+goods or delivering services over the last 12 months, second quarter of
+2026. DOI: https://doi.org/10.25318/3310116701-eng
 
 ## 3.3: Downstream permissions
 
-\[What can someone else do with your data project *output*? If you
-combine sources under incompatible licences, your merged product may be
-more restricted than either input was. Work out what licence you can
-actually offer, and state it. If all open data, state it.\]
+All of the data used in this project is open data. The code in this
+repository is covered by the MIT licence included in the repo, so anyone
+can reuse or modify it. Both licences(CC BY 4.0 and Statistics Canada
+Open Licence) allow the data to be used, modified and shared, as long as
+the original source is credited. Anyone reusing this project’s data must
+credit Epoch AI and Statistics Canada as the original sources, as well
+as this project.
 
 ------------------------------------------------------------------------
 
 # 4: Consent and identifiability
 
-\[If your data does not describe people, say so explicitly and explain
-why you are confident of that then move on.\]
+None of the data used in this project describes individual people.
+EpochAI describes facilities and the companies that own them, StatCan
+GDP is industry totals and the AI table reports weighted percentages of
+businesses. However the raw AI table also contains rows by majority
+ownership group(First Nations, Métis or Inuit).
 
-**Consent.** \[If you collected it: what paticipants agreed to, and how
-their data and consent was recorded. If someone else collected it: what
-were people told at the time, and does your use fall inside that? If it
-is your own data, what are you comfortable with people using it for in
-the future if someone else downloaded it?\]
+**Consent.** Built from from satellite imagery, companies that own them
+permits EpochAI so no individuals were asked to provide information. The
+two Statistics Canada tables come from surveys of businesses, collected
+under the Statistics Act.
 
-**Identifiability.** \[How many people are in the smallest reported
-cell? How small is the population of the place or community you are
-describing? If it does reference people’s data in a public manner
-(sports stats like goals or time), that is public data. If it is a
-conversation from a person who did not consent for their interview to be
-shared, it’s not.\]
+**Identifiability.** None of the data I analyze describes individual
+people. Some of the provincial groups used in GDP data are very small
+which is why Statistics Canada has marked many of those cells as too
+unreliable to publish or left them blank.
 
-**What I will be doing with it.** \[Suppression of identifiable
-information in your published dataset, aggregation to a coarser unit
-(bigger groups etc), withholding identifying variables, or a decision
-not to publish part of the dataset.\]
+**How sensitive data will be used.** I will keep the raw AI-use file
+unchanged, exactly as Statistics Canada published it, but my code will
+filter it to national industry rows only. My cleaned dataset and results
+will not include any breakdowns by province or by ownership group.
 
 ------------------------------------------------------------------------
 
@@ -181,80 +313,64 @@ not to publish part of the dataset.\]
 
 ## 5.1: Excluded data from the audit
 
-\[Every published dataset will demonstrate what an author aimed to
-prioritize, and lack of data or missing data can show the same. If you
-removed a column of the unprocessed dataset, describe what it was, and
-why you decided to remove it. That could be things like sensitive
-variables, time periods, places, categories. How could this exclusion
-affect your data points in your analysis? \]
+Data that will not be used: Columns dropped from Epoch data (Investors,
+Construction companies, Energy companies, Project, mostly blank) as they
+describe who funded or built each site, which has nothing to do with the
+question about power use. Statistic Can AI rows by ownership group will
+not be used as question compares industries, not types of business
+owners. The four Epoch files not used (chip types, chip quantities,
+chillers, cooling towers) as they describe computing hardware (which
+chips and how many) not resource use. As our cost side is power, which
+the timelines file already gives.
 
 ## 5.2: Who could be harmed
 
-\[Name a plausible misuse and who would be on the receiving end. Think
-about parties with an interest in the subject you chose, who are not
-your intended audience.\]
+Communities near the data centers as the data is collected from
+satellite images.
 
 ## 5.3: Unreleased working data
 
-\[If there is anything in your working data you would not publish, say
-what it was and why. If there is nothing, describe why it is okay to
-publish the working / raw dataset.\]
+I do not have any working data that I would keep unpublished.
 
 ------------------------------------------------------------------------
 
 # 6: Data Stewardship
 
-**Where it lives.** \[Repository, platform, or institution. It’s okay to
-be realisitic about the project after this course ends, as a GitHub
-account you stop paying attention to in January is a real answer.\]
+**Where it lives.**The project lives in a public GitHub repository in
+the DATA3101-2026 organization. Because it is public, I plan to move it
+to my personal GitHub account.
 
-**Who maintains it.** \[If nobody, say nobody.\]
+**Who maintains it.** I maintain it during and after the course.
 
-**Formats and dependencies.** \[Will your files open in ten years?
-Consider what could break if someone tried it in 2036. The package
-versions, data format, API, links to sources etc.\]
+**Formats and dependencies.** The raw and cleaned data are CSV files.
+The code depends on R and the tidyverse packages
 
-**Lifespan.** \[How long is this meaningfully usable before it needs
-updating or should be retired?\]
+**Lifespan.** The data is a snapshot from November 2026. The project
+should remain useful as a record of 2022 to 2026, but anyone studying
+later years would need to download newer data.
 
 ------------------------------------------------------------------------
 
 # 7: Use of AI
 
-\[State plainly whether you have used AI tools on this project.
-
-Your `AI-LOG.md` will live in this repository and is committed alongside
-the work it describes. Do not reproduce it here, but use a link such as
-`/log/AI-LOG.md` to point to it within your final project directory:\]
-
-**AI log:** `AI-LOG.md` \[— maintained from \[starting date\] and
-committed alongside each stage of work.\]
-
-\[One short paragraph summarizing your pattern of AI use (if any) so
-far: which stages, what for, etc. State the model you are using, such as
-ChatGPT or Claude. If you are continuing to chat to a Gemeni search
-agent after looking something up, that counts too! If you have not used
-AI tools at all, say so here and make sure `AI-LOG.md` says the same.\]
-
-\[**Reminder: the text in this document must be written in your own
-words.**\]
+AI will only be used in this project to clean and tidy code.
 
 ------------------------------------------------------------------------
 
 # 8: Session information
 
     R version 4.6.1 (2026-06-24)
-    Platform: x86_64-apple-darwin20
-    Running under: macOS Tahoe 26.6.2
+    Platform: aarch64-apple-darwin23
+    Running under: macOS Golden Gate 27.0.1
 
     Matrix products: default
-    BLAS:   /Library/Frameworks/R.framework/Versions/4.6-x86_64/Resources/lib/libRblas.0.dylib 
-    LAPACK: /Library/Frameworks/R.framework/Versions/4.6-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+    BLAS:   /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib 
+    LAPACK: /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 
     locale:
     [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 
-    time zone: America/Halifax
+    time zone: America/Moncton
     tzcode source: internal
 
     attached base packages:
@@ -266,23 +382,13 @@ words.**\]
      [9] ggplot2_4.0.3   tidyverse_2.0.0
 
     loaded via a namespace (and not attached):
-     [1] gtable_0.3.6       jsonlite_2.0.0     compiler_4.6.1     tidyselect_1.2.1  
-     [5] scales_1.4.0       yaml_2.3.12        fastmap_1.2.0      R6_2.6.1          
-     [9] generics_0.1.4     knitr_1.52         pillar_1.11.1      RColorBrewer_1.1-3
-    [13] tzdb_0.5.0         rlang_1.3.0        stringi_1.8.9      xfun_0.60         
-    [17] S7_0.2.2           otel_0.2.0         timechange_0.4.0   cli_3.6.6         
-    [21] withr_3.0.3        magrittr_2.0.5     digest_0.6.39      grid_4.6.1        
-    [25] rstudioapi_0.19.0  hms_1.1.4          lifecycle_1.0.5    vctrs_0.7.3       
-    [29] evaluate_1.0.5     glue_1.8.1         farver_2.1.2       rmarkdown_2.32    
-    [33] tools_4.6.1        pkgconfig_2.0.3    htmltools_0.5.9   
-
-<!--
-BEFORE YOU SUBMIT
-&#10;- Does your file render from a clean session (wiping the environment and history with no errors?
-- Are all paths relative? No setwd(), no C:/Users/yourname/
-- Is every package you used declared in the setup chunk?
-- Is AI-LOG.md committed and current?
-- Could a stranger read this and know what you are hoping to do in your project, what your data is, where it came
-  from, and what others are allowed to do with it?
-- Have you deleted every bracketed prompt including this comment block?
--->
+     [1] bit_4.6.0          gtable_0.3.6       jsonlite_2.0.0     crayon_1.5.3      
+     [5] compiler_4.6.1     tidyselect_1.2.1   parallel_4.6.1     scales_1.4.0      
+     [9] yaml_2.3.12        fastmap_1.2.0      R6_2.6.1           generics_0.1.4    
+    [13] knitr_1.52         pillar_1.11.1      RColorBrewer_1.1-3 tzdb_0.5.0        
+    [17] rlang_1.3.0        stringi_1.8.9      xfun_0.60          S7_0.2.2          
+    [21] bit64_4.8.6        otel_0.2.0         timechange_0.4.0   cli_3.6.6         
+    [25] withr_3.0.3        magrittr_2.0.5     digest_0.6.39      grid_4.6.1        
+    [29] vroom_1.7.1        rstudioapi_0.19.0  hms_1.1.4          lifecycle_1.0.5   
+    [33] vctrs_0.7.3        evaluate_1.0.5     glue_1.8.1         farver_2.1.2      
+    [37] rmarkdown_2.32     tools_4.6.1        pkgconfig_2.0.3    htmltools_0.5.9   
