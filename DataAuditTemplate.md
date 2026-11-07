@@ -1,6 +1,6 @@
 # AI Data Center Power Use vs. Industry Growth: Data Audit
 Advait Kataria
-2026-11-05
+2026-11-07
 
 - [1: Project Overview](#1-project-overview)
 - [2: Data Sources](#2-data-sources)
@@ -40,17 +40,7 @@ sources will visualize the variables contributing to this comparison.
 
 <!-- For the section numbers above, remember to update if needed for multiple sources or removing unneeded subsections -->
 
-\[This section covers everything you went looking for in your data
-audit. If you found sources that you chose not to use for the project
-itself, put them in! That helps your reader understand all the options
-you were considering as you worked through it.\]
-
 ## 2.1 Summary of sources
-
-\[Fill in one row per source you investigated. Include the ones you
-rejected in the `Using?` column. This table is the quick reference your
-reader checks before reading anything else. A clear table will give a
-reader a good idea of what the focus is beyond the overview.\]
 
 | Source | Producer | Format | Coverage | Using |
 |:---|:---|:---|:---|:---|
